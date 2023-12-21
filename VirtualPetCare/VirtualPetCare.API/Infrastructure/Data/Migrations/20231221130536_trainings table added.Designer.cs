@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VirtualPetCare.API.Persistence;
 
@@ -10,9 +11,11 @@ using VirtualPetCare.API.Persistence;
 namespace VirtualPetCare.API.Migrations
 {
     [DbContext(typeof(VirtualPetCareDbContext))]
-    partial class VirtualPetCareDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231221130536_trainings table added")]
+    partial class trainingstableadded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.14");
