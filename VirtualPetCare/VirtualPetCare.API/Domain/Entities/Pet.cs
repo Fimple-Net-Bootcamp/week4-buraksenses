@@ -18,4 +18,6 @@ public class Pet : Entity
 
     //Navigation Properties
     public User User { get; set; }
+
+    public ICollection<Training> Trainings { get; set; }
 }
