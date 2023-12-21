@@ -7,6 +7,6 @@ namespace VirtualPetCare.API.Domain.Interfaces;
 public interface IUserRepository
 {
     Task<User?> GetByIdAsync(Guid id);
-
+    Task<List<PetStatistics>?> GetPetStatisticsByIdAsync(Guid id);
     Task<User> CreateAsync(User user);
 }
