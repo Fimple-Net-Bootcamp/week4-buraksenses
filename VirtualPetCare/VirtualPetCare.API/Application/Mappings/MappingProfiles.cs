@@ -4,6 +4,7 @@ using VirtualPetCare.API.Application.DTOs.HealthStatus;
 using VirtualPetCare.API.Application.DTOs.Nutrition;
 using VirtualPetCare.API.Application.DTOs.Pet;
 using VirtualPetCare.API.Application.DTOs.PetNutrition;
+using VirtualPetCare.API.Application.DTOs.Training;
 using VirtualPetCare.API.Application.DTOs.User;
 using VirtualPetCare.API.Data.Entity;
 using VirtualPetCare.API.Domain.Entities;
@@ -43,5 +44,10 @@ public class MappingProfiles : Profile
         CreateMap<HealthStatus, RetrieveHealthStatusRequestDto>().ReverseMap();
         
         CreateMap<HealthStatus, UpdateHealthStatusRequestDto>().ReverseMap();
+        
+        //TRAINING MAPPINGS
+        CreateMap<RetrieveTrainingsByPetIdRequestDto, Training>().ReverseMap();
+
+        CreateMap<CreateTrainingForPetRequestDto, Training>().ReverseMap();
     }
 }

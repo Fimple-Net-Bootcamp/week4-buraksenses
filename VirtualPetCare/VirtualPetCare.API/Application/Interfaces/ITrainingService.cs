@@ -6,5 +6,5 @@ public interface ITrainingService
 {
     Task<CreateTrainingForPetRequestDto> CreateAsync(CreateTrainingForPetRequestDto requestDto);
 
-    Task<RetrieveTrainingsByPetIdRequestDto> GetTrainingsByPetIdAsync(RetrieveTrainingsByPetIdRequestDto requestDto);
+    Task<List<RetrieveTrainingsByPetIdRequestDto>?> GetTrainingsByPetIdAsync(Guid id);
 }
