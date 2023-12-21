@@ -7,6 +7,7 @@ public class Pet : Entity
     public Pet()
     {
         Trainings = new List<Training>();
+        SocialInteractions = new List<SocialInteraction>();
     }
     
     public string Name { get; set; }
@@ -25,4 +26,6 @@ public class Pet : Entity
     public User User { get; set; }
 
     public ICollection<Training> Trainings { get; set; }
+
+    public ICollection<SocialInteraction> SocialInteractions { get; set; }
 }

@@ -1,9 +1,9 @@
-﻿namespace VirtualPetCare.API.Domain.Entities;
+﻿using VirtualPetCare.API.Data.Entity.Core;
 
-public class Training
+namespace VirtualPetCare.API.Domain.Entities;
+
+public class Training : Entity
 {
-    public Guid Id { get; set; }
-
     public string Name { get; set; }
 
     public int Duration { get; set; }
