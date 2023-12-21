@@ -6,6 +6,7 @@ public interface IPetService
 {
     Task<List<RetrievePetRequestDto>> GetAllAsync();
     Task<RetrievePetRequestDto?> GetByIdAsync(Guid id);
+    Task<RetrievePetStatisticsDto?> GetStatisticsByIdAsync(Guid id);
     Task<CreatePetRequestDto> CreateAsync(CreatePetRequestDto requestDto);
     Task<UpdatePetRequestDto?> UpdateAsync(Guid id, UpdatePetRequestDto requestDto);
 }

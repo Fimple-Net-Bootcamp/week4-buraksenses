@@ -1,4 +1,6 @@
-﻿namespace VirtualPetCare.API.Data.Entity;
+﻿using VirtualPetCare.API.Domain.Entities;
+
+namespace VirtualPetCare.API.Data.Entity;
 using Core;
 
 public class Activity : Entity

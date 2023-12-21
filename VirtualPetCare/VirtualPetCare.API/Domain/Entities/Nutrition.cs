@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using Newtonsoft.Json;
+using VirtualPetCare.API.Domain.Entities;
 
 namespace VirtualPetCare.API.Data.Entity;
 using Core;

@@ -1,7 +1,6 @@
-﻿using VirtualPetCare.API.Domain.Entities;
+﻿using VirtualPetCare.API.Data.Entity.Core;
 
-namespace VirtualPetCare.API.Data.Entity;
-using Core;
+namespace VirtualPetCare.API.Domain.Entities;
 
 public class Pet : Entity
 {

@@ -34,6 +34,18 @@ public class PetsController : BaseApiController
         return Ok(pet);
     }
 
+    [HttpGet]
+    [Route("statistics/{id:guid}")]
+    public async Task<IActionResult> GetStatisticsByIdAsync([FromRoute] Guid id)
+    {
+        var statisticsDto = await _service.GetStatisticsByIdAsync(id);
+
+        if (statisticsDto == null)
+            return NotFound();
+
+        return Ok(statisticsDto);
+    }
+
     [HttpPost]
     public async Task<IActionResult> CreateAsync([FromBody] CreatePetRequestDto requestDto)
     {

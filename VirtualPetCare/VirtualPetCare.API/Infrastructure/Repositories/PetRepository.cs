@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using VirtualPetCare.API.Application.DTOs.Pet;
 using VirtualPetCare.API.Data.Entity;
+using VirtualPetCare.API.Domain.Entities;
 using VirtualPetCare.API.Domain.Interfaces;
 using VirtualPetCare.API.Persistence;
 
@@ -22,6 +24,26 @@ public class PetRepository : IPetRepository
     public async Task<Pet?> GetByIdAsync(Guid id)
     {
         return await _dbContext.Pets.FirstOrDefaultAsync(x => x.Id == id);
+    }
+
+    public async Task<PetStatistics?> GetStatisticsByIdAsync(Guid id)
+    {
+        var pet = await _dbContext.Pets.FirstOrDefaultAsync(x => x.Id == id);
+        if (pet == null)
+            return null;
+
+        var activities = await _dbContext.Activities.Where(x => x.PetId == id).ToListAsync();
+        var healthStatus = await _dbContext.HealthStatusList.SingleAsync(x => x.PetId == id);
+        var nutritions = await _dbContext.Nutritions.Where(x => x.Pets.Any(p => p.Id == id)).ToListAsync();
+
+        var statistics = new PetStatistics
+        {
+            Activities = activities,
+            Nutritions = nutritions,
+            HealthStatus = healthStatus
+        };
+
+        return statistics;
     }
 
     public async Task<Pet> CreateAsync(Pet pet)
