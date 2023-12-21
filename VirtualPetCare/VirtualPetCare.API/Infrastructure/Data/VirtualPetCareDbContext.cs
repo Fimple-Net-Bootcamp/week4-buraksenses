@@ -11,14 +11,6 @@ public class VirtualPetCareDbContext : DbContext
         
     }
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.Entity<Pet>()
-            .HasMany(p => p.Trainings)
-            .WithOne(t => t.Pet)
-            .HasForeignKey(t => t.PetId);
-    }
-
     public DbSet<User> Users { get; set; }
 
     public DbSet<Pet> Pets { get; set; }

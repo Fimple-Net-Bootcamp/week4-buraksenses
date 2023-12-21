@@ -4,6 +4,11 @@ namespace VirtualPetCare.API.Domain.Entities;
 
 public class Pet : Entity
 {
+    public Pet()
+    {
+        Trainings = new List<Training>();
+    }
+    
     public string Name { get; set; }
 
     public string Type { get; set; }

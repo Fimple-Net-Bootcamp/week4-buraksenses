@@ -6,5 +6,5 @@ public class CreateTrainingForPetRequestDto
 
     public int Duration { get; set; }
 
-    public string PetName { get; set; }
+    public Guid PetId { get; set; }
 }

@@ -23,12 +23,14 @@ public class TrainingRepository : ITrainingRepository
         
         pet.Trainings.Add(training);
 
+        await _dbContext.SaveChangesAsync();
+
         return training;
     }
 
     public async Task<List<Training>?> GetTrainingsByPetIdAsync(Guid id)
     {
-        var pet = await _dbContext.Pets.SingleOrDefaultAsync(p => p.Id == id);
+        var pet = await _dbContext.Pets.Include(p => p.Trainings).SingleOrDefaultAsync(p => p.Id == id);
 
         return pet?.Trainings.ToList();
     }
