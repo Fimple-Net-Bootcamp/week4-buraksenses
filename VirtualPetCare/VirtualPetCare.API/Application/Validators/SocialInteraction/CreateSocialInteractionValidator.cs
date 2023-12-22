@@ -9,7 +9,8 @@ public class CreateSocialInteractionValidator : AbstractValidator<CreateSocialIn
     {
         RuleFor(x => x.Name)
             .NotEmpty().WithMessage("Name is required.")
-            .MaximumLength(50).WithMessage("Name must be less than 50 characters.");
+            .MaximumLength(50).WithMessage("Name must be less than 50 characters.")
+            .Matches("^[^çÇıİğĞöÖşŞüÜ]*$").WithMessage("Name must not contain Turkish characters.");
 
         RuleFor(x => x.StartDate)
             .NotEmpty().WithMessage("Start date is required.")

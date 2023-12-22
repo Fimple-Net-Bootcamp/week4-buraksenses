@@ -25,7 +25,8 @@ public class CreatePetValidator : AbstractValidator<CreatePetRequestDto>
             .GreaterThan(0).WithMessage("Weight must be greater than zero.");
 
         RuleFor(x => x.UserId)
-            .NotEmpty().WithMessage("UserId is required.")
-            .Must(id => id != Guid.Empty).WithMessage("UserId cannot be empty Guid.");
+            .NotEmpty().WithMessage("User ID is required.")
+            .Must(id => id != Guid.Empty && id.ToString().Length == 36)
+            .WithMessage("User ID must be a valid 36-character Guid.");
     }
 }

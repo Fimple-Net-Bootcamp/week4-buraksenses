@@ -9,7 +9,8 @@ public class CreateNutritionValidator : AbstractValidator<CreatePetNutritionRequ
     {
         RuleFor(x => x.NutritionId)
             .NotEmpty().WithMessage("NutritionId is required.")
-            .Must(id => id != Guid.Empty).WithMessage("NutritionId cannot be empty Guid.");
+            .Must(id => id != Guid.Empty && id.ToString().Length == 36)
+            .WithMessage("NutritionId must be a valid 36-character Guid.");
 
         RuleFor(x => x.Quantity)
             .NotEmpty().WithMessage("Quantity is required.")
