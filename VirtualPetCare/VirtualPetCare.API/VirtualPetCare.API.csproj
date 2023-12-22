@@ -25,7 +25,6 @@
 
     <ItemGroup>
       <Folder Include="API\" />
-      <Folder Include="Application\Validators\Nutritions\" />
       <Folder Include="Application\Validators\PetNutrition\" />
       <Folder Include="Application\Validators\PetStatistics\" />
       <Folder Include="Application\Validators\Pet\" />
