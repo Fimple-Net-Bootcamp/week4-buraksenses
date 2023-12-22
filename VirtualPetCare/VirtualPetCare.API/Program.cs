@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using VirtualPetCare.API.Extensions;
+using VirtualPetCare.API.Infrastructure.Middleware;
 using VirtualPetCare.API.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,6 +20,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseAuthorization();
 
