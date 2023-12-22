@@ -1,11 +1,7 @@
-﻿using AutoMapper;
-using FluentValidation;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using VirtualPetCare.API.API.Controllers.Core;
 using VirtualPetCare.API.Application.DTOs.Activity;
 using VirtualPetCare.API.Application.Interfaces;
-using VirtualPetCare.API.Application.Validators.Activity;
-using VirtualPetCare.API.Data.Entity;
 
 namespace VirtualPetCare.API.API.Controllers;
 
@@ -32,16 +28,6 @@ public class ActivitiesController : BaseApiController
     [HttpPost]
     public async Task<IActionResult> CreateActivity([FromBody] CreateActivityRequestDto requestDto)
     {
-        try
-        {
-            var validator = new CreateActivityValidator();
-            await validator.ValidateAndThrowAsync(requestDto);
-        }
-        catch (Exception e)
-        {
-            return BadRequest(e.Message);
-        }
-        
         await _activityService.CreateAsync(requestDto);
 
         return Ok(requestDto);
