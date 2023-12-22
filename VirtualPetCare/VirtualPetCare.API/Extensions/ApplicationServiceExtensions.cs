@@ -29,6 +29,7 @@ public static class ApplicationServiceExtensions
         services.AddScoped<IHealthStatusRepository, HealthStatusRepository>();
         services.AddScoped<IPetNutritionRepository, PetNutritionRepository>();
         services.AddScoped<ITrainingRepository, TrainingRepository>();
+        services.AddScoped<ISocialInteractionRepository, SocialInteractionRepository>();
 
         services.AddScoped<IPetService, PetService>();
         services.AddScoped<IUserService, UserService>();
@@ -37,6 +38,7 @@ public static class ApplicationServiceExtensions
         services.AddScoped<IHealthStatusService, HealthStatusService>();
         services.AddScoped<IPetNutritionService, PetNutritionService>();
         services.AddScoped<ITrainingService, TrainingService>();
+        services.AddScoped<ISocialInteractionService, SocialInteractionService>();
         
         return services;
     }
