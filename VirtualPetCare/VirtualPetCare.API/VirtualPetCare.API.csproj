@@ -25,7 +25,6 @@
 
     <ItemGroup>
       <Folder Include="API\" />
-      <Folder Include="Application\Validators\Training\" />
       <Folder Include="Application\Validators\User\" />
     </ItemGroup>
 
