@@ -23,25 +23,14 @@ public class SocialInteractionRepository : ISocialInteractionRepository
 
     public async Task<SocialInteraction?> CreateSocialInteraction(SocialInteraction socialInteraction,List<Guid> petIds)
     {
-        var existingPetIds = await _dbContext.Pets
-            .Where(p => petIds.Contains(p.Id))
-            .Select(p => p.Id)
-            .ToListAsync();
+        var pets = await _dbContext.Pets.Where(p => petIds.Contains(p.Id)).ToListAsync();
 
-        if (!existingPetIds.Any())
-            return null;
-
-        foreach (var petId in existingPetIds)
+        foreach (var pet in pets)
         {
-            var petSocialInteraction = new PetSocialInteraction
-            {
-                PetId = petId,
-                SocialInteractionId = socialInteraction.Id
-            };
-
-            _dbContext.Set<PetSocialInteraction>().Add(petSocialInteraction);
+            pet.SocialInteractions.Add(socialInteraction);
         }
 
+        _dbContext.SocialInteractions.Add(socialInteraction);
         await _dbContext.SaveChangesAsync();
 
         return socialInteraction;
