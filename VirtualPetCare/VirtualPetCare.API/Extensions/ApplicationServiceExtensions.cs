@@ -1,10 +1,12 @@
 ﻿using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using VirtualPetCare.API.Application.DTOs.Activity;
 using VirtualPetCare.API.Application.Interfaces;
 using VirtualPetCare.API.Application.Mappings;
 using VirtualPetCare.API.Application.Services;
 using VirtualPetCare.API.Application.Validators.Activity;
+using VirtualPetCare.API.Application.Validators.HealthStatus;
 using VirtualPetCare.API.Domain.Interfaces;
 using VirtualPetCare.API.Infrastructure.Repositories;
 using VirtualPetCare.API.Persistence;
@@ -42,9 +44,9 @@ public static class ApplicationServiceExtensions
         services.AddScoped<IPetNutritionService, PetNutritionService>();
         services.AddScoped<ITrainingService, TrainingService>();
         services.AddScoped<ISocialInteractionService, SocialInteractionService>();
-
-        services.AddScoped<IValidator<CreateActivityRequestDto>, CreateActivityValidator>();
         
+        services.AddFluentValidation(fv => 
+            fv.RegisterValidatorsFromAssemblyContaining<UpdateHealthStatusValidator>());
         return services;
     }
 }

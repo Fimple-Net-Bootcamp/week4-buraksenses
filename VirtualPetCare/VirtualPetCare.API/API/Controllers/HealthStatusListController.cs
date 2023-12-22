@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FluentValidation;
+using Microsoft.AspNetCore.Mvc;
 using VirtualPetCare.API.API.Controllers.Core;
 using VirtualPetCare.API.Application.DTOs.HealthStatus;
 using VirtualPetCare.API.Application.Interfaces;
+using VirtualPetCare.API.Application.Validators.HealthStatus;
 
 namespace VirtualPetCare.API.API.Controllers;
 
