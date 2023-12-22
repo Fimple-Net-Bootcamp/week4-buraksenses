@@ -27,7 +27,6 @@
       <Folder Include="API\" />
       <Folder Include="Application\Validators\PetNutrition\" />
       <Folder Include="Application\Validators\PetStatistics\" />
-      <Folder Include="Application\Validators\Pet\" />
       <Folder Include="Application\Validators\SocialInteraction\" />
       <Folder Include="Application\Validators\Training\" />
       <Folder Include="Application\Validators\User\" />
